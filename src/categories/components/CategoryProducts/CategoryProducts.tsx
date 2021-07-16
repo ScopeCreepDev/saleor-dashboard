@@ -1,5 +1,4 @@
-import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
+import { Button, Card } from "@material-ui/core";
 import CardTitle from "@saleor/components/CardTitle";
 import { SingleAutocompleteChoiceType } from "@saleor/components/SingleAutocompleteSelectField";
 import React from "react";
@@ -49,7 +48,12 @@ export const CategoryProducts: React.FC<CategoryProductsProps> = ({
           { categoryName }
         )}
         toolbar={
-          <Button color="primary" variant="text" onClick={onAdd}>
+          <Button
+            color="primary"
+            variant="text"
+            onClick={onAdd}
+            data-test-id="addProducts"
+          >
             <FormattedMessage
               defaultMessage="Add product"
               description="button"

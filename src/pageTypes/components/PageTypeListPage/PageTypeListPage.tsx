@@ -1,5 +1,4 @@
-import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
+import { Button, Card } from "@material-ui/core";
 import AppHeader from "@saleor/components/AppHeader";
 import Container from "@saleor/components/Container";
 import PageHeader from "@saleor/components/PageHeader";
@@ -49,7 +48,12 @@ const PageTypeListPage: React.FC<PageTypeListPageProps> = ({
         {intl.formatMessage(sectionNames.configuration)}
       </AppHeader>
       <PageHeader title={intl.formatMessage(sectionNames.pageTypes)}>
-        <Button color="primary" variant="contained" onClick={onAdd}>
+        <Button
+          color="primary"
+          variant="contained"
+          onClick={onAdd}
+          data-test-id="createPageType"
+        >
           <FormattedMessage
             defaultMessage="create page type"
             description="button"

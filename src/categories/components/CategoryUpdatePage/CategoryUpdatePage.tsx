@@ -1,5 +1,4 @@
-import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
+import { Button, Card } from "@material-ui/core";
 import AppHeader from "@saleor/components/AppHeader";
 import { CardSpacer } from "@saleor/components/CardSpacer";
 import CardTitle from "@saleor/components/CardTitle";
@@ -155,6 +154,7 @@ export const CategoryUpdatePage: React.FC<CategoryUpdatePageProps> = ({
               />
             </CategoriesTab>
             <ProductsTab
+              testId="productsTab"
               isActive={currentTab === CategoryPageTab.products}
               changeTab={changeTab}
             >
@@ -177,6 +177,7 @@ export const CategoryUpdatePage: React.FC<CategoryUpdatePageProps> = ({
                     color="primary"
                     variant="text"
                     onClick={onAddCategory}
+                    data-test-id="createSubcategory"
                   >
                     <FormattedMessage
                       defaultMessage="Create subcategory"

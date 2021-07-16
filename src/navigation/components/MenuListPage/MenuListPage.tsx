@@ -1,4 +1,4 @@
-import Button from "@material-ui/core/Button";
+import { Button } from "@material-ui/core";
 import AppHeader from "@saleor/components/AppHeader";
 import Container from "@saleor/components/Container";
 import PageHeader from "@saleor/components/PageHeader";
@@ -32,7 +32,12 @@ const MenuListPage: React.FC<MenuListPageProps> = ({
         {intl.formatMessage(sectionNames.configuration)}
       </AppHeader>
       <PageHeader title={intl.formatMessage(sectionNames.navigation)}>
-        <Button color="primary" variant="contained" onClick={onAdd}>
+        <Button
+          color="primary"
+          variant="contained"
+          onClick={onAdd}
+          data-test-id="addMenu"
+        >
           <FormattedMessage
             defaultMessage="Create Menu"
             description="button"

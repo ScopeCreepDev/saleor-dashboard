@@ -1,10 +1,12 @@
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import TextField from "@material-ui/core/TextField";
-import Typography from "@material-ui/core/Typography";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  TextField,
+  Typography
+} from "@material-ui/core";
 import AutocompleteSelectMenu from "@saleor/components/AutocompleteSelectMenu";
 import ConfirmButton, {
   ConfirmButtonTransitionState
@@ -114,6 +116,7 @@ const MenuItemDialog: React.FC<MenuItemDialogProps> = ({
 
   const mutationErrors = errors.filter(err => err.field === null);
   const formErrors = getFormErrors(["name"], errors);
+  const testIds = ["category", "collection", "page", "url"];
   const idError = ["category", "collection", "page", "url"]
     .map(field => getFieldError(errors, field))
     .reduce((acc, err) => acc || err);
@@ -268,6 +271,7 @@ const MenuItemDialog: React.FC<MenuItemDialogProps> = ({
           displayValue={displayValue}
           loading={loading}
           options={options}
+          testIds={testIds}
           error={!!idError}
           helperText={getMenuErrorMessage(idError, intl)}
           placeholder={intl.formatMessage({
@@ -292,6 +296,7 @@ const MenuItemDialog: React.FC<MenuItemDialogProps> = ({
           <FormattedMessage {...buttonMessages.back} />
         </Button>
         <ConfirmButton
+          data-test="submit"
           transitionState={confirmButtonState}
           color="primary"
           variant="contained"

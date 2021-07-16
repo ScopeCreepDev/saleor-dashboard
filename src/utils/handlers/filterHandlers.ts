@@ -14,7 +14,7 @@ type CreateFilterHandlers<TFilterKeys extends string> = [
 
 function createFilterHandlers<
   TFilterKeys extends string,
-  TFilters extends object
+  TFilters extends {}
 >(opts: {
   getFilterQueryParam: GetFilterQueryParam<TFilterKeys, TFilters>;
   navigate: UseNavigatorResult;
@@ -59,6 +59,8 @@ function createFilterHandlers<
     navigate(
       createUrl({
         ...params,
+        after: undefined,
+        before: undefined,
         activeTab: undefined,
         query
       })
